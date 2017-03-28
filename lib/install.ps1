@@ -755,6 +755,9 @@ function unlink_current($versiondir) {
     if(test-path $currentdir) {
         write-host "Unlinking $(friendly_path $currentdir)"
 
+        # remove read-only attribute on link
+        attrib $currentdir -R /L
+
         # remove the junction
         cmd /c rmdir $currentdir
         return $currentdir
