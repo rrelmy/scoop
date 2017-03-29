@@ -17,17 +17,7 @@
     "env_add_path": [ ".", "bin" ],
     "post_install": "
 # Set npm prefix to install modules inside bin
-Set-Content -Value \"prefix=$dir\\bin\" -Path $dir\\node_modules\\npm\\npmrc
-if (!(Test-Path \"$dir\\bin\\npm.cmd\")) {
-    Move-Item $dir\\npm $dir\\bin\\
-    Move-Item $dir\\npm.cmd $dir\\bin\\
-    Move-Item $dir\\node_modules $dir\\bin\\
-} else {
-    Remove-Item $dir\\npm
-    Remove-Item $dir\\npm.cmd
-    Remove-Item -r $dir\\node_modules
-}
-npm update -g",
+Set-Content -Value \"prefix=$dir\\bin\" -Path $dir\\node_modules\\npm\\npmrc",
     "checkver": {
         "url": "https://nodejs.org/en/download/current/",
         "re": "Current version: <strong>v([\\d.]+)</strong>"
