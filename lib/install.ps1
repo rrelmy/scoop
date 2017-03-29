@@ -762,7 +762,7 @@ function unlink_current($versiondir) {
         cmd /c rmdir $currentdir
         return $currentdir
     }
-    return $appdir
+    return $versiondir
 }
 
 # to undo after installers add to path so that scoop manifest can keep track of this instead
